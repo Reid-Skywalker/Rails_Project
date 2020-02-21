@@ -1,0 +1,2 @@
+class CampaignMonstersController < ApplicationController
+end
