@@ -7,7 +7,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.string :last_name
       t.string :character_class
       t.string :race
-      t.string :level
+      t.integer :level
       t.integer :health
       t.integer :damage
       t.references :player, null: false, foreign_key: true

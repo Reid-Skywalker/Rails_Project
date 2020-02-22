@@ -1,4 +1,6 @@
+# frozen_string_literal: true
+
 class Character < ApplicationRecord
-  belongs_to :campaigns
-  belongs_to :players
+  belongs_to :player
+  belongs_to :campaign
 end

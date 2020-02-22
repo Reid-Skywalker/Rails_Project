@@ -3,21 +3,19 @@
 one:
   first_name: MyString
   last_name: MyString
-  class: MyString
+  character_class: MyString
   race: MyString
-  level: MyString
-  health: 
-  damage: 
-  belongs_to: 
-  belongs_to: 
+  level: 1
+  health: 1
+  references: 
+  references: 
 
 two:
   first_name: MyString
   last_name: MyString
-  class: MyString
+  character_class: MyString
   race: MyString
-  level: MyString
-  health: 
-  damage: 
-  belongs_to: 
-  belongs_to: 
+  level: 1
+  health: 1
+  references: 
+  references: 

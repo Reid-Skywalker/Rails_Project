@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_21_215838) do
+ActiveRecord::Schema.define(version: 2020_02_22_003607) do
 
   create_table "campaign_monsters", force: :cascade do |t|
     t.integer "monster_id", null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_02_21_215838) do
     t.string "last_name"
     t.string "character_class"
     t.string "race"
-    t.string "level"
+    t.integer "level"
     t.integer "health"
     t.integer "damage"
     t.integer "player_id", null: false
