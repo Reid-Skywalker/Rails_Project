@@ -10,8 +10,8 @@
 require 'httparty'
 require 'date'
 
-Player.destroy_all
 Character.destroy_all
+Player.destroy_all
 CampaignMonster.destroy_all
 Monster.destroy_all
 Campaign.destroy_all
@@ -66,7 +66,6 @@ NUMBER_OF_PLAYERS.times do
                                  character_class: clas, race: race, level: level,
                                  health: health, damage: damage, campaign_id: Campaign.order('RANDOM()').first.id,
                                  player_id: player.id)
-    puts character.inspect
   end
 end
 
