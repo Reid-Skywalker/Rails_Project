@@ -1,2 +1,17 @@
-<h1>Characters#show</h1>
-<p>Find me in app/views/characters/show.html.erb</p>
+<div class='column' >
+<div class='card'>
+<div class= 'card-content'>
+<p class='title'>
+  <%= @character.first_name + ' ' + @character.last_name %>
+</p>
+<p>Player: <%=link_to @character.player.name,player_path(@character.player)%></p>
+<p>Level: <%= @character.level%></p>
+</div>
+<footer class='card-footer'>
+<p class='card-footer-item'>Class: <%=@character.character_class%></p>
+<p class='card-footer-item'>Race: <%=@character.race%></p>
+<p class='card-footer-item'>Health: <%=@character.health%></p>
+<p class='card-footer-item'>Damage: <%=@character.damage%></p>
+</footer>
+</div>
+</div>

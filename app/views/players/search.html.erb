@@ -1,4 +1,8 @@
-<h3 class='title is-4'>All Players</h3>
+<p>
+<%# Found <%= pluralize(@players.size, 'result')%> %>
+for the search term <%=params[:search_term]%>
+</p>
+
 
 <div class='columns is-multiline'>
 <%= render partial: 'players/player',
@@ -6,4 +10,3 @@
            locals: {show_link: true}
 %>
 </div>
-

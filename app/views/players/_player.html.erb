@@ -1,0 +1,19 @@
+<div class='column' >
+<div class='card'>
+<div class= 'card-content'>
+<p class='title'>
+  <% if show_link %>
+  <%= link_to player.name,player%>
+  <% else %>
+  <%= player.name %>
+  <% end %>
+</p>
+<p>Characters: <% player.characters.each do |character| %>
+  <p><%= link_to character.character_class, character %></p>
+<% end %>
+</div>
+<footer class='card-footer'>
+<p class='card-footer-item'>Registration date: <%=player.registration_date%></p>
+</footer>
+</div>
+</div>
