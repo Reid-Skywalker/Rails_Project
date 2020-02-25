@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'campaigns/index'
-  get 'campaigns/show'
-  get 'monsters/index'
-  get 'monsters/show'
-  get 'characters/index'
-  get 'characters/show'
-  get 'players/index'
-  get 'players/show'
+  # get 'campaigns/index'
+  # get 'campaigns/show'
+  # get 'monsters/index'
+  # get 'monsters/show'
+  # get 'characters/index'
+  # get 'characters/show'
+  # get 'players/index'
+  # get 'players/show'
 
   resources :players, only: :show
   resources :characters, only: :show

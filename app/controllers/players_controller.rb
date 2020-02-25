@@ -10,6 +10,6 @@ class PlayersController < ApplicationController
   end
 
   def search
-    @player = Player.where('name LIKE ?', "%#{params[:search_term]}%")
+    @players = Player.where('name LIKE ?', "%#{params[:search_term]}%")
   end
 end
