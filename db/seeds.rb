@@ -62,10 +62,10 @@ NUMBER_OF_PLAYERS.times do
     health = HTTParty.get('http://roll.diceapi.com/json/d20').parsed_response['dice'][0]['value']
     damage = HTTParty.get('http://roll.diceapi.com/json/d6').parsed_response['dice'][0]['value']
 
-    character = Character.create(first_name: first_name, last_name: last_name,
-                                 character_class: clas, race: race, level: level,
-                                 health: health, damage: damage, campaign_id: Campaign.order('RANDOM()').first.id,
-                                 player_id: player.id)
+    Character.create(first_name: first_name, last_name: last_name,
+                     character_class: clas, race: race, level: level,
+                     health: health, damage: damage, campaign_id: Campaign.order('RANDOM()').first.id,
+                     player_id: player.id)
   end
 end
 
