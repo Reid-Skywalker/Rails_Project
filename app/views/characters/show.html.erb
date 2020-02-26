@@ -4,7 +4,9 @@
 <p class='title'>
   <%= @character.first_name + ' ' + @character.last_name %>
 </p>
+<br/>
 <p>Player: <%=link_to @character.player.name,player_path(@character.player)%></p>
+<p>Campaign: <%=link_to @character.campaign.name,campaign_path(@character.campaign)%></p>
 <p>Level: <%= @character.level%></p>
 </div>
 <footer class='card-footer'>
