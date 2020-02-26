@@ -40,7 +40,7 @@ NUMBER_OF_CAMPAIGNS.times do
   name = Faker::Games::ElderScrolls.unique.region
   start_date = Time.now
 
-  campaign = Campaign.create(Name: name, Start_Date: start_date)
+  campaign = Campaign.create(name: name, start_date: start_date)
 
   MONSTERS_PER_CAMPAIGN.times do
     CampaignMonster.create(campaign: campaign, monster: Monster.order('RANDOM()').first)

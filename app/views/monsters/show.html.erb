@@ -1,2 +1,20 @@
-<h1>Monsters#show</h1>
-<p>Find me in app/views/monsters/show.html.erb</p>
+<div class='column' >
+<div class='card'>
+<div class= 'card-content'>
+<p class='title'>
+  <%= @monster.name%>
+</p>
+<p>Level: <%= @monster.level%></p>
+<br/>
+<br/>
+<p>Campaigns: <% @monster.campaigns.each do |campaign| %>
+  <p><%= link_to campaign.name, campaign %></p>
+<% end %>
+<br/>
+</div>
+<footer class='card-footer'>
+<p class='card-footer-item'>Health: <%=@monster.health%></p>
+<p class='card-footer-item'>Damage: <%=@monster.damage%></p>
+</footer>
+</div>
+</div>

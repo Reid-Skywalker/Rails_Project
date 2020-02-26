@@ -3,8 +3,8 @@
 class CreateCampaigns < ActiveRecord::Migration[6.0]
   def change
     create_table :campaigns do |t|
-      t.string :Name
-      t.date :Start_Date
+      t.string :name
+      t.date :start_date
 
       t.timestamps
     end

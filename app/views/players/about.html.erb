@@ -1,0 +1,28 @@
+<h1 class='title is-3'>About</h1>
+
+<p>
+The purpose of the the players table it to store the data of registered players at the hobby shop.
+<br/>
+Data is being pulled from Faker to generate names and todays date is being used for registration.
+<br/>
+<br/>
+The purpose of the characters table is to store the associated characters of each player that is registered and store all thier important stats.
+<br/>
+Data is being pulled from DnD api where all available classes, and races are being grabbed and randomly selected through for each character
+A Dice Roll api is being used to roll health and damage and level is being Faked in a range.
+<br/>
+<br/>
+The purpose of the campaigns table is to keep track of the active guild campaigns and thier start date.
+<br/>
+Campaigns names are pulled from Faker ElderScrolls regions and the start date is the date of creation.
+<br/>
+<br/>
+The purpose of the monsters table is to keep a list of all the available monsters that can show up in campaigns and thier stats.
+<br/>
+Monsters are grabbed globally from DnD api and names are being selected at random until table is filled
+The health and damage for these is being randomed to keep them at a consitant level for the character set.
+<br/>
+<br/>
+The purpose of the campaign monsters table is to join the monsters and campaign table so there is a subset of monsters that appear in that campaign.
+</p>
+<%= image_tag 'DnDErd.PNG' %>

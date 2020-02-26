@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2020_02_22_003607) do
   end
 
   create_table "campaigns", force: :cascade do |t|
-    t.string "Name"
-    t.date "Start_Date"
+    t.string "name"
+    t.date "start_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
