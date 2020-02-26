@@ -31082,3 +31082,481 @@ Processing by PlayersController#index as HTML
 Completed 200 OK in 59ms (Views: 53.6ms | ActiveRecord: 3.7ms | Allocations: 15085)
 
 
+Started GET "/search?search_term=g&commit=Search" for ::1 at 2020-02-26 09:39:39 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PlayersController#search as HTML
+  Parameters: {"search_term"=>"g", "commit"=>"Search"}
+  Rendering players/search.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE (name LIKE '%g%')[0m
+  ↳ app/views/players/search.html.erb:8
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 2]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 8]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 9]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 10]]
+  ↳ app/views/players/_player.html.erb:11
+  Rendered collection of players/_player.html.erb [4 times] (Duration: 24.2ms | Allocations: 12801)
+  Rendered players/search.html.erb within layouts/application (Duration: 32.7ms | Allocations: 16938)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 1.0ms | Allocations: 263)
+Completed 200 OK in 74ms (Views: 69.1ms | ActiveRecord: 1.1ms | Allocations: 23768)
+
+
+Started GET "/players/8" for ::1 at 2020-02-26 09:39:41 -0600
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:9:in `show'
+  Rendering players/show.html.erb within layouts/application
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 8]]
+  ↳ app/views/players/_player.html.erb:11
+  Rendered players/_player.html.erb (Duration: 2.6ms | Allocations: 1082)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1373)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 124)
+Completed 200 OK in 31ms (Views: 28.1ms | ActiveRecord: 0.4ms | Allocations: 6501)
+
+
+Started GET "/characters/15" for ::1 at 2020-02-26 09:39:46 -0600
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `show'
+  Rendering characters/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/characters/show.html.erb:8
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/characters/show.html.erb:9
+  Rendered characters/show.html.erb within layouts/application (Duration: 13.2ms | Allocations: 7074)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 125)
+Completed 200 OK in 179ms (Views: 173.5ms | ActiveRecord: 0.9ms | Allocations: 18213)
+
+
+Started GET "/campaigns/4" for ::1 at 2020-02-26 09:39:49 -0600
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:7:in `show'
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mCharacter Load (0.7ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."campaign_id" = ?[0m  [["campaign_id", 4]]
+  ↳ app/views/campaigns/show.html.erb:9
+  [1m[36mMonster Load (1.0ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters" INNER JOIN "campaign_monsters" ON "monsters"."id" = "campaign_monsters"."monster_id" WHERE "campaign_monsters"."campaign_id" = ?[0m  [["campaign_id", 4]]
+  ↳ app/views/campaigns/show.html.erb:14
+  Rendered campaigns/show.html.erb within layouts/application (Duration: 37.3ms | Allocations: 11816)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.4ms | Allocations: 125)
+Completed 200 OK in 56ms (Views: 51.0ms | ActiveRecord: 1.9ms | Allocations: 16928)
+
+
+Started GET "/monsters/31" for ::1 at 2020-02-26 09:39:51 -0600
+Processing by MonstersController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mMonster Load (0.4ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters" WHERE "monsters"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/monsters_controller.rb:10:in `show'
+  Rendering monsters/show.html.erb within layouts/application
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" INNER JOIN "campaign_monsters" ON "campaigns"."id" = "campaign_monsters"."campaign_id" WHERE "campaign_monsters"."monster_id" = ?[0m  [["monster_id", 31]]
+  ↳ app/views/monsters/show.html.erb:10
+  Rendered monsters/show.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2647)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 125)
+Completed 200 OK in 50ms (Views: 44.8ms | ActiveRecord: 0.8ms | Allocations: 7994)
+
+
+Started GET "/campaigns/8" for ::1 at 2020-02-26 09:39:53 -0600
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:7:in `show'
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."campaign_id" = ?[0m  [["campaign_id", 8]]
+  ↳ app/views/campaigns/show.html.erb:9
+  [1m[36mMonster Load (0.5ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters" INNER JOIN "campaign_monsters" ON "monsters"."id" = "campaign_monsters"."monster_id" WHERE "campaign_monsters"."campaign_id" = ?[0m  [["campaign_id", 8]]
+  ↳ app/views/campaigns/show.html.erb:14
+  Rendered campaigns/show.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2330)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.4ms | Allocations: 125)
+Completed 200 OK in 51ms (Views: 47.0ms | ActiveRecord: 1.0ms | Allocations: 7591)
+
+
+Started GET "/monsters/23" for ::1 at 2020-02-26 09:40:21 -0600
+Processing by MonstersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mMonster Load (0.2ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters" WHERE "monsters"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/monsters_controller.rb:10:in `show'
+  Rendering monsters/show.html.erb within layouts/application
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" INNER JOIN "campaign_monsters" ON "campaigns"."id" = "campaign_monsters"."campaign_id" WHERE "campaign_monsters"."monster_id" = ?[0m  [["monster_id", 23]]
+  ↳ app/views/monsters/show.html.erb:10
+  Rendered monsters/show.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1111)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 124)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.4ms | Allocations: 5627)
+
+
+Started GET "/monsters/27" for ::1 at 2020-02-26 09:40:29 -0600
+Processing by MonstersController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mMonster Load (0.2ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters" WHERE "monsters"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/monsters_controller.rb:10:in `show'
+  Rendering monsters/show.html.erb within layouts/application
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" INNER JOIN "campaign_monsters" ON "campaigns"."id" = "campaign_monsters"."campaign_id" WHERE "campaign_monsters"."monster_id" = ?[0m  [["monster_id", 27]]
+  ↳ app/views/monsters/show.html.erb:10
+  Rendered monsters/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1024)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.2ms | Allocations: 124)
+Completed 200 OK in 57ms (Views: 53.6ms | ActiveRecord: 0.5ms | Allocations: 6457)
+
+
+Started GET "/monsters/27" for ::1 at 2020-02-26 09:40:34 -0600
+Processing by MonstersController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mMonster Load (0.2ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters" WHERE "monsters"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/monsters_controller.rb:10:in `show'
+  Rendering monsters/show.html.erb within layouts/application
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" INNER JOIN "campaign_monsters" ON "campaigns"."id" = "campaign_monsters"."campaign_id" WHERE "campaign_monsters"."monster_id" = ?[0m  [["monster_id", 27]]
+  ↳ app/views/monsters/show.html.erb:10
+  Rendered monsters/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1024)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.4ms | Allocations: 124)
+Completed 200 OK in 19ms (Views: 15.5ms | ActiveRecord: 0.6ms | Allocations: 5531)
+
+
+Started GET "/monsters/27" for ::1 at 2020-02-26 09:40:37 -0600
+Processing by MonstersController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mMonster Load (0.2ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters" WHERE "monsters"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/monsters_controller.rb:10:in `show'
+  Rendering monsters/show.html.erb within layouts/application
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" INNER JOIN "campaign_monsters" ON "campaigns"."id" = "campaign_monsters"."campaign_id" WHERE "campaign_monsters"."monster_id" = ?[0m  [["monster_id", 27]]
+  ↳ app/views/monsters/show.html.erb:10
+  Rendered monsters/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1024)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 124)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.4ms | Allocations: 5549)
+
+
+Started GET "/campaigns/8" for ::1 at 2020-02-26 09:40:41 -0600
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:7:in `show'
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."campaign_id" = ?[0m  [["campaign_id", 8]]
+  ↳ app/views/campaigns/show.html.erb:9
+  [1m[36mMonster Load (0.2ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters" INNER JOIN "campaign_monsters" ON "monsters"."id" = "campaign_monsters"."monster_id" WHERE "campaign_monsters"."campaign_id" = ?[0m  [["campaign_id", 8]]
+  ↳ app/views/campaigns/show.html.erb:14
+  Rendered campaigns/show.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2323)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.6ms | Allocations: 124)
+Completed 200 OK in 46ms (Views: 40.7ms | ActiveRecord: 1.0ms | Allocations: 7261)
+
+
+Started GET "/monsters/23" for ::1 at 2020-02-26 09:40:55 -0600
+Processing by MonstersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mMonster Load (0.2ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters" WHERE "monsters"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/monsters_controller.rb:10:in `show'
+  Rendering monsters/show.html.erb within layouts/application
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" INNER JOIN "campaign_monsters" ON "campaigns"."id" = "campaign_monsters"."campaign_id" WHERE "campaign_monsters"."monster_id" = ?[0m  [["monster_id", 23]]
+  ↳ app/views/monsters/show.html.erb:10
+  Rendered monsters/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1111)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.7ms | Allocations: 124)
+Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 0.3ms | Allocations: 6242)
+
+
+Started GET "/campaigns/3" for ::1 at 2020-02-26 09:40:59 -0600
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:7:in `show'
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."campaign_id" = ?[0m  [["campaign_id", 3]]
+  ↳ app/views/campaigns/show.html.erb:9
+  [1m[36mMonster Load (0.3ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters" INNER JOIN "campaign_monsters" ON "monsters"."id" = "campaign_monsters"."monster_id" WHERE "campaign_monsters"."campaign_id" = ?[0m  [["campaign_id", 3]]
+  ↳ app/views/campaigns/show.html.erb:14
+  Rendered campaigns/show.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2454)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.5ms | Allocations: 124)
+Completed 200 OK in 77ms (Views: 72.7ms | ActiveRecord: 0.9ms | Allocations: 8482)
+
+
+Started GET "/" for ::1 at 2020-02-26 09:42:14 -0600
+Processing by PlayersController#index as HTML
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" ORDER BY "players"."name" ASC[0m
+  ↳ app/views/players/index.html.erb:4
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 6]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 10]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 12]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 7]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 3]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 5]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 8]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 9]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 11]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 2]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 4]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 1]]
+  ↳ app/views/players/_player.html.erb:11
+  Rendered collection of players/_player.html.erb [12 times] (Duration: 48.0ms | Allocations: 10155)
+  Rendered players/index.html.erb within layouts/application (Duration: 51.6ms | Allocations: 11178)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 125)
+Completed 200 OK in 63ms (Views: 58.9ms | ActiveRecord: 2.9ms | Allocations: 15332)
+
+
+Started GET "/" for ::1 at 2020-02-26 09:49:00 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PlayersController#index as HTML
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" ORDER BY "players"."name" ASC[0m
+  ↳ app/views/players/index.html.erb:4
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 6]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 10]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 12]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 7]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 3]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 5]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 8]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 9]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 11]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 2]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 4]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 1]]
+  ↳ app/views/players/_player.html.erb:11
+  Rendered collection of players/_player.html.erb [12 times] (Duration: 21.1ms | Allocations: 10175)
+  Rendered players/index.html.erb within layouts/application (Duration: 23.3ms | Allocations: 11085)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 124)
+Completed 200 OK in 36ms (Views: 32.7ms | ActiveRecord: 2.3ms | Allocations: 15183)
+
+
+Started GET "/about" for ::1 at 2020-02-26 09:49:02 -0600
+Processing by PlayersController#about as HTML
+  Rendering players/about.html.erb within layouts/application
+  Rendered players/about.html.erb within layouts/application (Duration: 2.6ms | Allocations: 623)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.5ms | Allocations: 138)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms | Allocations: 4751)
+
+
+Started GET "/" for ::1 at 2020-02-26 09:49:04 -0600
+Processing by PlayersController#index as HTML
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" ORDER BY "players"."name" ASC[0m
+  ↳ app/views/players/index.html.erb:4
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 6]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 10]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 12]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 7]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 3]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 5]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 8]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 9]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 11]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 2]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 4]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.6ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 1]]
+  ↳ app/views/players/_player.html.erb:11
+  Rendered collection of players/_player.html.erb [12 times] (Duration: 33.0ms | Allocations: 10149)
+  Rendered players/index.html.erb within layouts/application (Duration: 34.9ms | Allocations: 11041)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 124)
+Completed 200 OK in 55ms (Views: 50.7ms | ActiveRecord: 3.1ms | Allocations: 15201)
+
+
+Started GET "/players/4" for ::1 at 2020-02-26 09:49:06 -0600
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:9:in `show'
+  Rendering players/show.html.erb within layouts/application
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 4]]
+  ↳ app/views/players/_player.html.erb:11
+  Rendered players/_player.html.erb (Duration: 2.8ms | Allocations: 822)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 903)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 123)
+Completed 200 OK in 21ms (Views: 17.9ms | ActiveRecord: 0.5ms | Allocations: 5441)
+
+
+Started GET "/characters/7" for ::1 at 2020-02-26 09:49:07 -0600
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `show'
+  Rendering characters/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/characters/show.html.erb:8
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/characters/show.html.erb:9
+  Rendered characters/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1490)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 125)
+Completed 200 OK in 49ms (Views: 44.1ms | ActiveRecord: 0.8ms | Allocations: 6914)
+
+
+Started GET "/" for ::1 at 2020-02-26 09:49:08 -0600
+Processing by PlayersController#index as HTML
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" ORDER BY "players"."name" ASC[0m
+  ↳ app/views/players/index.html.erb:4
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 6]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 10]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 12]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 7]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 3]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 5]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 8]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 9]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 11]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 2]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 4]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 1]]
+  ↳ app/views/players/_player.html.erb:11
+  Rendered collection of players/_player.html.erb [12 times] (Duration: 52.8ms | Allocations: 10148)
+  Rendered players/index.html.erb within layouts/application (Duration: 55.1ms | Allocations: 11040)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 124)
+Completed 200 OK in 77ms (Views: 72.2ms | ActiveRecord: 3.6ms | Allocations: 15152)
+
+
+Started GET "/characters/10" for ::1 at 2020-02-26 09:49:10 -0600
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `show'
+  Rendering characters/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/characters/show.html.erb:8
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/characters/show.html.erb:9
+  Rendered characters/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1469)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 124)
+Completed 200 OK in 41ms (Views: 37.5ms | ActiveRecord: 0.8ms | Allocations: 6583)
+
+
+Started GET "/players/5" for ::1 at 2020-02-26 09:49:11 -0600
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:9:in `show'
+  Rendering players/show.html.erb within layouts/application
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 5]]
+  ↳ app/views/players/_player.html.erb:11
+  Rendered players/_player.html.erb (Duration: 2.8ms | Allocations: 822)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 903)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 123)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.4ms | Allocations: 5588)
+
+
+Started GET "/characters/9" for ::1 at 2020-02-26 09:49:13 -0600
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `show'
+  Rendering characters/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/characters/show.html.erb:8
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/characters/show.html.erb:9
+  Rendered characters/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1469)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 124)
+Completed 200 OK in 70ms (Views: 67.7ms | ActiveRecord: 0.7ms | Allocations: 7741)
+
+
+Started GET "/about" for ::1 at 2020-02-26 09:49:14 -0600
+Processing by PlayersController#about as HTML
+  Rendering players/about.html.erb within layouts/application
+  Rendered players/about.html.erb within layouts/application (Duration: 2.6ms | Allocations: 498)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 133)
+Completed 200 OK in 64ms (Views: 62.6ms | ActiveRecord: 0.0ms | Allocations: 5911)
+
+
+Started GET "/" for ::1 at 2020-02-26 09:49:14 -0600
+Processing by PlayersController#index as HTML
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" ORDER BY "players"."name" ASC[0m
+  ↳ app/views/players/index.html.erb:4
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 6]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 10]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 12]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 7]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 3]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 5]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 8]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 9]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 11]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 2]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 4]]
+  ↳ app/views/players/_player.html.erb:11
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."player_id" = ?[0m  [["player_id", 1]]
+  ↳ app/views/players/_player.html.erb:11
+  Rendered collection of players/_player.html.erb [12 times] (Duration: 32.5ms | Allocations: 10146)
+  Rendered players/index.html.erb within layouts/application (Duration: 34.3ms | Allocations: 11038)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered players/_search_forms.html.erb (Duration: 0.3ms | Allocations: 124)
+Completed 200 OK in 56ms (Views: 51.6ms | ActiveRecord: 3.1ms | Allocations: 15237)
+
+
